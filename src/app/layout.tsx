@@ -72,11 +72,7 @@ export default function RootLayout({
       <body className={`${font.variable} font-sans antialiased`}>
         <ThemeProvider>
           <SessionProvider>
-            {/* Animated background */}
-            <div className="animated-bg" />
-            <div className="grid-overlay dark:block hidden" />
-
-            <div className="min-h-screen bg-background/80 backdrop-blur-sm relative">
+            <div className="min-h-screen bg-background">
               {/* Mobile Header - only visible on small screens */}
               <MobileHeader />
 

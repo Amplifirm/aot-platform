@@ -1,8 +1,9 @@
 import { Suspense } from "react";
-import { Lightbulb, Plus, Search, ArrowUpDown } from "lucide-react";
+import { Lightbulb, Search, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TargetCard, TargetCardSkeleton } from "@/components/targets/TargetCard";
+import { SuggestButton } from "@/components/targets/SuggestButton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import type { Metadata } from "next";
 import type { TargetWithStats } from "@/types";
@@ -135,10 +136,7 @@ export default function IdeasPage() {
             <p className="text-sm text-muted-foreground">Ideologies and movements</p>
           </div>
         </div>
-        <Button size="sm" className="rounded-xl bg-purple-600 hover:bg-purple-700">
-          <Plus className="h-4 w-4 mr-2" />
-          Suggest Idea
-        </Button>
+        <SuggestButton targetType="idea" />
       </div>
 
       {/* Search and Filters */}
@@ -208,10 +206,7 @@ export default function IdeasPage() {
         <p className="text-sm text-muted-foreground mb-4">
           Suggest a policy, ideology, or movement to be added
         </p>
-        <Button variant="outline" size="sm" className="rounded-xl">
-          <Plus className="h-4 w-4 mr-2" />
-          Suggest an Idea
-        </Button>
+        <SuggestButton targetType="idea" variant="outline" label="Suggest an Idea" />
       </div>
     </div>
   );

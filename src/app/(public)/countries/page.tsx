@@ -1,8 +1,9 @@
 import { Suspense } from "react";
-import { Globe, Plus, Search, ArrowUpDown } from "lucide-react";
+import { Globe, Search, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TargetCard, TargetCardSkeleton } from "@/components/targets/TargetCard";
+import { SuggestButton } from "@/components/targets/SuggestButton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import type { Metadata } from "next";
 import type { TargetWithStats } from "@/types";
@@ -135,10 +136,7 @@ export default function CountriesPage() {
             <p className="text-sm text-muted-foreground">Nations and civilizations</p>
           </div>
         </div>
-        <Button size="sm" className="rounded-xl bg-green-600 hover:bg-green-700">
-          <Plus className="h-4 w-4 mr-2" />
-          Suggest Country
-        </Button>
+        <SuggestButton targetType="country" />
       </div>
 
       {/* Search and Filters */}
@@ -209,10 +207,7 @@ export default function CountriesPage() {
         <p className="text-sm text-muted-foreground mb-4">
           Suggest a country or historical nation to be added
         </p>
-        <Button variant="outline" size="sm" className="rounded-xl">
-          <Plus className="h-4 w-4 mr-2" />
-          Suggest a Country
-        </Button>
+        <SuggestButton targetType="country" variant="outline" label="Suggest a Country" />
       </div>
     </div>
   );

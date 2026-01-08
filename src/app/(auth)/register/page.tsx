@@ -9,8 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
-import { motion } from "framer-motion";
-import { GradientText } from "@/components/ui/animated-background";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -78,214 +76,153 @@ export default function RegisterPage() {
   ];
 
   return (
-    <div className="space-y-6">
-      <Card variant="glass" className="p-8 hover-glow">
+    <div className="space-y-4">
+      <Card className="p-6">
         <CardContent className="p-0">
           {/* Header */}
-          <motion.div
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Link href="/" className="inline-flex items-center gap-2 mb-6 group">
-              <motion.div
-                className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-lg shadow-cyan-500/30"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 400 }}
-              >
-                <span className="text-white font-bold text-xl">A</span>
-              </motion.div>
-              <span className="font-bold text-2xl group-hover:text-primary transition-colors">AOT</span>
+          <div className="text-center mb-6">
+            <Link href="/" className="inline-flex items-center gap-2 mb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-lg">A</span>
+              </div>
+              <span className="font-bold text-xl">AOT</span>
             </Link>
-            <h1 className="text-2xl font-bold tracking-tight">
-              Create <GradientText>account</GradientText>
-            </h1>
+            <h1 className="text-xl font-bold tracking-tight">Create account</h1>
             <p className="text-muted-foreground text-sm mt-1">Join AOT and start scoring</p>
-          </motion.div>
+          </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
-            <motion.div
-              className="space-y-2"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-            >
+            <div className="space-y-2">
               <Label htmlFor="name" className="text-sm font-medium">
                 Display Name
               </Label>
-              <div className="relative group">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="name"
                   type="text"
                   placeholder="Your display name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="pl-10 h-11 rounded-xl bg-muted/30 border-border/50 focus:bg-muted/50 focus:border-primary/50 transition-all"
+                  className="pl-10"
                   required
                 />
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="space-y-2"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 }}
-            >
+            <div className="space-y-2">
               <Label htmlFor="email" className="text-sm font-medium">
                 Email
               </Label>
-              <div className="relative group">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="email"
                   type="email"
                   placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 h-11 rounded-xl bg-muted/30 border-border/50 focus:bg-muted/50 focus:border-primary/50 transition-all"
+                  className="pl-10"
                   required
                 />
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="space-y-2"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-            >
+            <div className="space-y-2">
               <Label htmlFor="password" className="text-sm font-medium">
                 Password
               </Label>
-              <div className="relative group">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="password"
                   type="password"
                   placeholder="At least 8 characters"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 h-11 rounded-xl bg-muted/30 border-border/50 focus:bg-muted/50 focus:border-primary/50 transition-all"
+                  className="pl-10"
                   required
                   minLength={8}
                 />
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="space-y-2"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.25 }}
-            >
+            <div className="space-y-2">
               <Label htmlFor="confirmPassword" className="text-sm font-medium">
                 Confirm Password
               </Label>
-              <div className="relative group">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="confirmPassword"
                   type="password"
                   placeholder="Confirm your password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="pl-10 h-11 rounded-xl bg-muted/30 border-border/50 focus:bg-muted/50 focus:border-primary/50 transition-all"
+                  className="pl-10"
                   required
                 />
               </div>
-            </motion.div>
+            </div>
 
             {formError && (
-              <motion.div
-                className="bg-destructive/10 text-destructive text-sm p-3 rounded-xl border border-destructive/20"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-              >
+              <div className="bg-destructive/10 text-destructive text-sm p-3 rounded-lg border border-destructive/20">
                 {formError}
-              </motion.div>
+              </div>
             )}
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={isLoading}
             >
-              <Button
-                type="submit"
-                variant="glow"
-                size="lg"
-                className="w-full"
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                    Creating account...
-                  </>
-                ) : (
-                  <>
-                    Create Account
-                    <ArrowRight className="h-4 w-4 ml-2" />
-                  </>
-                )}
-              </Button>
-            </motion.div>
+              {isLoading ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  Creating account...
+                </>
+              ) : (
+                <>
+                  Create Account
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </>
+              )}
+            </Button>
           </form>
 
           {/* Footer */}
-          <motion.p
-            className="text-center text-sm text-muted-foreground mt-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.4 }}
-          >
+          <p className="text-center text-sm text-muted-foreground mt-6">
             Already have an account?{" "}
             <Link href="/login" className="text-primary hover:underline font-medium">
               Sign in
             </Link>
-          </motion.p>
+          </p>
         </CardContent>
       </Card>
 
       {/* Benefits Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        <Card variant="glass" className="p-5">
-          <CardContent className="p-0">
-            <p className="text-sm font-semibold mb-4 flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-primary" />
-              Account Benefits
-            </p>
-            <ul className="space-y-3">
-              {benefits.map((benefit, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-center gap-3 text-sm text-muted-foreground"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                >
-                  <motion.div
-                    className="w-5 h-5 rounded-full bg-gradient-to-br from-emerald-400 to-green-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-500/30"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    <Check className="h-3 w-3 text-white" />
-                  </motion.div>
-                  {benefit}
-                </motion.li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      </motion.div>
+      <Card className="p-4">
+        <CardContent className="p-0">
+          <p className="text-sm font-semibold mb-3 flex items-center gap-2">
+            <Sparkles className="h-4 w-4 text-primary" />
+            Account Benefits
+          </p>
+          <ul className="space-y-2">
+            {benefits.map((benefit, index) => (
+              <li
+                key={index}
+                className="flex items-center gap-2 text-sm text-muted-foreground"
+              >
+                <div className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center flex-shrink-0">
+                  <Check className="h-2.5 w-2.5 text-emerald-600 dark:text-emerald-400" />
+                </div>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
     </div>
   );
 }

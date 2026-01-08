@@ -1,8 +1,9 @@
 import { Suspense } from "react";
-import { Users, Plus, Search, ArrowUpDown } from "lucide-react";
+import { Users, Search, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TargetCard, TargetCardSkeleton } from "@/components/targets/TargetCard";
+import { SuggestButton } from "@/components/targets/SuggestButton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import type { Metadata } from "next";
 import type { TargetWithStats } from "@/types";
@@ -169,10 +170,7 @@ export default function PeoplePage() {
             <p className="text-sm text-muted-foreground">Historical figures and leaders</p>
           </div>
         </div>
-        <Button size="sm" className="rounded-xl">
-          <Plus className="h-4 w-4 mr-2" />
-          Suggest Person
-        </Button>
+        <SuggestButton targetType="person" />
       </div>
 
       {/* Search and Filters */}
@@ -230,10 +228,7 @@ export default function PeoplePage() {
         <p className="text-sm text-muted-foreground mb-4">
           Suggest a new historical figure to be added to our database
         </p>
-        <Button variant="outline" size="sm" className="rounded-xl">
-          <Plus className="h-4 w-4 mr-2" />
-          Suggest a Person
-        </Button>
+        <SuggestButton targetType="person" variant="outline" label="Suggest a Person" />
       </div>
     </div>
   );
